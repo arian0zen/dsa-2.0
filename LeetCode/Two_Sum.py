@@ -9,5 +9,6 @@ class Solution(object):
             else:
                 hash_dict[number] = each
         return [] 
-        
-    twoSum([2,7,11,15],9)
+     
+     #unsolved   
+   
