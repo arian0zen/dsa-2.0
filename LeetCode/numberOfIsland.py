@@ -17,15 +17,17 @@ class Solution:
             #print (rows, columns)
             
         
+        '''
         def bfs(r, c):
+            if (r, c) not in visited:
             #print ("inside bfs")
-            queued = collections.deque()
-            visited.append((r,c))
-            queued.append((r,c))
+            #queued = collections.deque()
+                visited.append((r,c))
+            #queued.append((r,c))
             #print (visited)
             #print (queued)
-            while queued:
-                row, column = queued.popleft()
+            #while queued:
+                #row, column = queued.popleft()
                 #print (row, column)
                 directions = [[-1, 0], [1,0], [0,1], [0,-1]]
                 for  rw, cl in directions:
@@ -42,25 +44,67 @@ class Solution:
                         queued.append((r,c))
                         visited.append((r,c,))
                         #print (visited)
+                        '''
                         
-             
+        def checkValidIsland(r, c, rows, columns, matrix):
+            if  (r>=0 and r < rows and
+                c>=0 and c < columns and
+                matrix[r][c] == '1'):
+                return True
+            else: 
+                return False
+                
+                        
+            
+        def dfs(r, c, rows, columns, matrix):
+                matrix[r][c] = '0'
+                #print (r,c)
+               
+                if checkValidIsland(r-1, c, rows, columns, matrix) == True:
+                    dfs(r-1, c, rows, columns, matrix)
+                    
+                if checkValidIsland(r+1, c, rows, columns, matrix) == True:
+                    dfs(r+1, c, rows, columns, matrix)
+                
+                if checkValidIsland(r, c-1, rows, columns, matrix) == True:
+                    dfs(r, c-1, rows, columns, matrix)
+                    
+                if checkValidIsland(r, c+1, rows, columns, matrix) == True:
+                    dfs(r, c+1, rows, columns, matrix)
+                    
+                '''
+                else:
+                    return False
+                    '''
+                
+                
+                
+        
         for r in range(rows):
            
             for c in range(columns):
                 
-                if matrix[r][c] == "1" and (r,c) not in visited:
+                if matrix[r][c] == "1" :
+                    island = island + 1
                     
                     
-                    bfs(r, c)
-                    island += 1
+                    #bfs(r, c)
+                    #print ("The count of islands is: ", island, r, c)
                     
-        print (island)
+                    dfs(r,c, rows, columns, matrix)
+                    
+                    
+                    
+                    
+        print ("isnland: ", island)
     
     
-    grid= [ ["1","1","0","0","0"],
-            ["1","1","0","0","0"],
-            ["0","0","1","0","0"],
-            ["0","0","0","1","1"] ]
+    grid= [ 
+            ["0","1","1", "0", "1"],
+            ["1","1","0", "1","1"],
+            ["0","0","0", "1","0"],
+            ["1","0","1", "0","1"],
+            ["1","1","0", "0","0"]]
 
     numIslands(grid)
                                     
