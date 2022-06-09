@@ -9,7 +9,7 @@ def largestWordCount(messages, senders):
         
          
         hash_dict = {}
-        arr = []
+        #arr = []
         updated_table = {}
         for i in range(len(m)):
             
@@ -19,7 +19,7 @@ def largestWordCount(messages, senders):
             else:
                 
                 hash_dict[s[i]] = (m[i].count(' ')) + 1
-            arr.append(s[i])
+            #arr.append(s[i])
         
         #hash_dict.sort()
         #sorted(hash_dict.items())
