@@ -25,4 +25,3 @@ for element in range(n):
         count += array[element] - array[mid]
     
 print(count)
-        
