@@ -50,7 +50,7 @@ def kthSmallest(arr, l, r, k):
 			return kthSmallest(arr, l, index - 1, k)
 
 		# Else recur for right subarray
-		return kthSmallest(arr, index + 1, r,k)
+		return kthSmallest(arr, index + 1, r,k - index + l - 1)
 	#print (index)
 	print("Index out of bound")
 
