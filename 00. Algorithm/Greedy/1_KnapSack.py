@@ -40,7 +40,7 @@ weights = [int(w) for w in weights]
 print(weights)
 capacity = int(input('Enter maximum weight: '))
 '''
-values = [1,2,3]
+values = [144,2,3]
 weights  = [4,5,6]
 capacity = 3
 
